@@ -21,19 +21,12 @@ private:
         auto operator<=>(const MaximizedViewId &) const = default;
     };
 
-    using IScene = int;
-
-    std::map<MaximizedViewId, std::shared_ptr<IScene>> _maximizableViews;
-    std::shared_ptr<IScene> _maximizedView;
-
     void foo()
     {
-        _maximizableViews[MaximizedViewId{ MaximizedViewType::Schematic }] = std::make_shared<IScene>(1);
+        std::map<MaximizedViewId, int> maximizableViews;
+        maximizableViews[MaximizedViewId{ MaximizedViewType::Schematic }] = 1;
     }
 };
-
-
-
 
 int main()
 {
